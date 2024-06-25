@@ -167,7 +167,6 @@ def main():
     score = Score()
     beam = None
     tmr = 0
-    beams = []
     while True:
         for event in pg.event.get():
             if event.type == pg.QUIT:
@@ -176,8 +175,8 @@ def main():
             if event.type == pg.KEYDOWN and event.key == pg.K_SPACE:
                 # スペースキー押下でBeamクラスのインスタンス生成
                 beam = Beam(bird)
-                new_beam = Beam(random.randint(0, WIDTH- 5), HEIGHT - 50)
-                beams.append(new_beam)            
+                
+                       
         screen.blit(bg_img, [0, 0])
         
         for bomb in bombs:
