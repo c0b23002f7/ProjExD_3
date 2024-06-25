@@ -167,14 +167,31 @@ def main():
     score = Score()
     beam = None
     tmr = 0
+    beams = []
+    
     while True:
         for event in pg.event.get():
             if event.type == pg.QUIT:
                 return
+            
                
             if event.type == pg.KEYDOWN and event.key == pg.K_SPACE:
-                # スペースキー押下でBeamクラスのインスタンス生成
-                beam = Beam(bird)            
+                    # スペースキー押下でBeamクラスのインスタンス生成
+                new_beam = Beam(bird)
+                beams.append(new_beam)
+                beam = Beam(bird) 
+
+            for i in range(len(bombs)):
+                for j in range (len(beams)): 
+                    if beam is not None:
+                        if bombs[i].rct.colliderect(beam.rct):
+                            score.value += 1
+                            bombs[i] = None
+                            beams[i] = None
+                            bird.change_img(6, screen)
+            bombs = [bomb for bomb in bombs if bomb is not None]
+            
+                             
         screen.blit(bg_img, [0, 0])
         
         for bomb in bombs:
