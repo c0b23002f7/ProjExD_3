@@ -152,6 +152,10 @@ class Score:
         self.img = self.fonto.render("表示させる文字列", 0, self.font_color)
         self.center = 100, HEIGHT - 50
     def update(self, screen: pg.Surface):
+        """
+        現在のスコアを表示させる文字列Surfaceの作成
+        引数screen:画面Surface
+        """
         self.img = self.fonto.render(f"score：{self.value}", 0,self.font_color)
         screen.blit(self.img, self.center)
 
