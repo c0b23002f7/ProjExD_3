@@ -147,10 +147,10 @@ class Score:
     """
     def __init__(self):
         self.fonto = pg.font.SysFont("hgp創英角ﾎﾟｯﾌﾟ体", 30)
-        self.font_color = (0, 0, 255)
-        self.value = 0
-        self.img = self.fonto.render("表示させる文字列", 0, self.font_color)
-        self.center = 100, HEIGHT - 50
+        self.font_color = (0, 0, 255) # 文字の色
+        self.value = 0  # スコアの初期値の設定
+        self.img = self.fonto.render("表示させる文字列", 0, self.font_color) # 文字列Surfaceの生成
+        self.center = 100, HEIGHT - 50 # 文字列の中心座標
     def update(self, screen: pg.Surface):
         """
         現在のスコアを表示させる文字列Surfaceの作成
