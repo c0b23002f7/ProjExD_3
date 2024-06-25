@@ -174,7 +174,7 @@ def main():
                     bombs[i] = None
                     beam = None
                     bird.change_img(6, screen)
-        bombs = [bomb for bomb in bomb if bomb is not None]
+        bombs = [bomb for bomb in bombs if bomb is not None]
 
         key_lst = pg.key.get_pressed()
         bird.update(key_lst, screen)
